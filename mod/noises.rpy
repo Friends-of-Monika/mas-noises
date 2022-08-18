@@ -101,6 +101,11 @@ menu:
         play music "mod_assets/sounds/music/sounds/owls.ogg"
         m "There you go, [player]!"
        
+     "Chickens":
+        m "Okay..."
+        play music "mod_assets/sounds/music/sounds/chickens.ogg"
+        m "There you go, [player]!"
+        
      "Whales":
         m "Okay..."
         play music "mod_assets/sounds/music/sounds/whales.ogg"
@@ -190,6 +195,11 @@ menu:
      "Machinery":
         m "Okay..."
         play music "mod_assets/sounds/music/sounds/machinery.ogg"
+        m "There you go, [player]!"
+        
+     "Space":
+        m "Okay..."
+        play music "mod_assets/sounds/music/sounds/space.ogg"
         m "There you go, [player]!"
         
 return
