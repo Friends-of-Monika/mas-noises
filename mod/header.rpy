@@ -1,7 +1,7 @@
 init -990 python in mas_submod_utils:
     Submod(
         author="Otter",
-        name="Noises Mod",
+        name="Noises Submod",
         description="FILL THIS",
         version="1.0.0"
     )
@@ -12,6 +12,6 @@ init -989 python:
             submod="Noises Mod",
             user_name="my-otter-self",
             repository_name="mas_noises",
-            submod_dir="/Submods/Noises Mod",
+            submod_dir="/Submods/Noises Submod",
             extraction_depth=3
         )
