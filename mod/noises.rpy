@@ -30,7 +30,7 @@ label otter_show_noises:
 
     python:
         items = [
-                        ("White noise", "white", False, False),
+            ("White noise", "white", False, False),
             ("Pink noise", "pink", False, False),
             ("Brown noise", "brown", False, False),
             ("Rain", "rain", False, False),
