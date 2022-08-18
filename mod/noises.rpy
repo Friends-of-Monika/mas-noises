@@ -1,3 +1,7 @@
+label otter_show_noises:
+    $ mas_RaiseShield_dlg()
+    show monika at t21
+
 m "What noise do you want to listen to today?{nw}"
 $ _history_list.pop()
 menu:
@@ -202,4 +206,6 @@ menu:
         play music "mod_assets/sounds/music/sounds/space.ogg"
         m "There you go, [player]!"
         
-return
+label otter_show_noises_end:
+    $ mas_DropShield_dlg()
+    jump ch30_visual_skip
