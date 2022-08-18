@@ -2,7 +2,7 @@ init -990 python in mas_submod_utils:
     Submod(
         author="Otter",
         name="Noises Submod",
-        description="FILL THIS",
+        description="Background noises Monika can play to you",
         version="1.0.0"
     )
 
