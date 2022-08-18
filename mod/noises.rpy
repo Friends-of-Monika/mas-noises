@@ -1,7 +1,19 @@
 label otter_show_noises:
     $ mas_RaiseShield_dlg()
-    show monika at t21
+        items = list(map(
+            lambda it: (it.prompt, it.eventlabel, False, False),
+        ))
 
+        items.sort(key=lambda it: it[0].replace("'", "").replace('"', ""))
+        
+    show monika at t21
+    call screen mas_gen_scrollable_menu(items, mas_ui.SCROLLABLE_MENU_TXT_LOW_AREA, mas_ui.SCROLLABLE_MENU_XALIGN, ("Nevermind", False, False, False, 0))
+    show monika at t11
+
+    if not _return:
+        m 2eka "Oh, okay..."
+        return
+        
 m "What noise do you want to listen to today?{nw}"
 $ _history_list.pop()
 menu:
