@@ -30,8 +30,45 @@ label otter_show_noises:
 
     python:
         items = [
-            ("White noise", "white", False, False),
-            ("Pink noise", "pink", False, False)
+                        ("White noise", "white", False, False),
+            ("Pink noise", "pink", False, False),
+            ("Brown noise", "brown", False, False),
+            ("Rain", "rain", False, False),
+            ("Rain on roof", "rainroof", False, False),
+            ("Thunderstorm", "thunder", False, False),
+            ("Fireplace", "fire", False, False),
+            ("River", "river", False, False),
+            ("Waterfall", "waterfall", False, False),
+            ("Waterdrops", "waterdrops", False, False),
+            ("Forest", "forest", False, False),
+            ("Waves", "waves", False, False),
+            ("Wind", "wind", False, False),
+            ("Wind on trees", "windtrees", False, False),
+            ("Windchime", "windchime", False, False),
+            ("Snowstorm", "snowstorm", False, False),
+            ("Clock", "clock", False, False),
+            ("Fan", "fan", False, False),
+            ("Space", "space", False, False),
+            ("City", "city", False, False),
+            ("Machinery", "machinery", False, False),
+            ("Highway", "highway", False, False),
+            ("Office", "office", False, False),
+            ("Coffee shop", "coffeeshop", False, False),
+            ("Chatter", "chatter", False, False),
+            ("Train", "train", False, False),
+            ("Typing", "typing", False, False),
+            ("Shower", "shower", False, False),
+            ("Heartbeat", "heart", False, False),
+            ("Uterus", "uterus", False, False),
+            ("Purring", "purring", False, False),
+            ("Crickets", "crickets", False, False),
+            ("Cicadas", "cicadas", False, False),
+            ("Frogs", "frogs", False, False),
+            ("Whales", "whales", False, False),
+            ("Birds", "birds", False, False),
+            ("Chickens", "chickens", False, False),
+            ("Owls", "owls", False, False),
+            ("Seagulls", "seagulls", False, False)
         ]
 
     show monika at t21
