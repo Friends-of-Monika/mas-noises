@@ -5,7 +5,7 @@ init python in noMod:
             path = os.path.relpath(path, renpy.config.renpy_base)
 
         parts = path.split("/")[:-1]
-        parts.append("platform")
+        parts.append("sounds")
 
         if parts[0] != "game":
             for n in range(1, len(parts)):
@@ -98,7 +98,7 @@ label otter_show_noises_end:
 label otter_show_noise(path, weather=None):
     m 1dua "Okay..."
     if weather is not None:
-        call mas_change_weather (weather, by_user=False)
+        call mas_change_weather(weather, by_user=False)
     play music path
     m 3hub "There you go, [player]!"
     return
