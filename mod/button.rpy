@@ -17,11 +17,6 @@ init 100000:
             ypos 715
     #        yalign 0.95
 
-            if store.hkb_button._otter_noises_enabled:
-                textbutton _("Noises") action Function(_otter_show_noises)
-            else:
-                textbutton _("Noises")
-
             if store.hkb_button.talk_enabled:
                 textbutton _("Talk") action Function(show_dialogue_box)
             else:
@@ -36,6 +31,11 @@ init 100000:
                 textbutton _("Music") action Function(select_music)
             else:
                 textbutton _("Music")
+
+            if store.hkb_button._otter_noises_enabled:
+                textbutton _("Noises") action Function(_otter_show_noises)
+            else:
+                textbutton _("Noises")
 
             if store.hkb_button.play_enabled:
                 textbutton _("Play") action Function(pick_game)
