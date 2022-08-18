@@ -1,3 +1,30 @@
+init python in noMod:
+    def __get_sounds_dir():
+        path = renpy.get_filename_line()[0].replace("\\", "/")
+        if os.path.isabs(path):
+            path = os.path.relpath(path, renpy.config.renpy_base)
+
+        parts = path.split("/")[:-1]
+        parts.append("platform")
+
+        if parts[0] != "game":
+            for n in range(1, len(parts)):
+                parts_proc = parts[n:]
+                parts_proc.insert(0, "game")
+
+                full_abs_path = os.path.join(renpy.config.renpy_base, *parts_proc)
+                if os.path.exists(full_abs_path):
+                    return full_abs_path
+
+            return os.path.join(renpy.config.gamedir, "Submods", "Noises Submod", "sounds")
+
+        else:
+            return os.path.join(renpy.config.renpy_base, *parts)
+
+
+    SOUND_PREFIX = __get_sounds_dir()
+
+
 label otter_show_noises:
     $ mas_RaiseShield_dlg()
 
@@ -15,7 +42,7 @@ label otter_show_noises:
         m 2eka "Oh, okay..."
         jump otter_show_noises_end
 
-    $ path = "mod_assets/sounds/music/sounds/" + _return + ".ogg"
+    $ path = store.noMod.SOUND_PREFIX + "/" + _return + ".ogg"
     $ weather = None
     if _return in ("rain", "rainroof"):
         $ weather = mas_weather_rain
