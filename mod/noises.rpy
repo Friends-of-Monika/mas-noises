@@ -7,7 +7,8 @@ init python in noMod:
             path = os.path.relpath(path, renpy.config.renpy_base)
 
         parts = path.split("/")[:-1]
-        parts.append("sounds")
+        parts.append("res")
+        parts.append("audio")
 
         if parts[0] != "game":
             for n in range(1, len(parts)):
@@ -25,7 +26,7 @@ init python in noMod:
 
 
     SOUND_PREFIX = __get_sounds_dir()
-    SOUND_PREFIX_REL = SOUND_PREFIX[5:]  # Remove game/ prefix
+    SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir)
 
 
 label otter_show_noises:
