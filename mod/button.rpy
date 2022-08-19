@@ -12,10 +12,8 @@ init 100000:
 
         vbox:
             xpos 0.05
-    #        xalign 0.05
             yanchor 1.0
             ypos 715
-    #        yalign 0.95
 
             if store.hkb_button.talk_enabled:
                 textbutton _("Talk") action Function(show_dialogue_box)
