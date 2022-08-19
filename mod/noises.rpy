@@ -18,13 +18,14 @@ init python in noMod:
                 if os.path.exists(full_abs_path):
                     return full_abs_path
 
-            return os.path.join(renpy.config.gamedir, "Submods", "Noises Submod", "sounds")
+            return os.path.join(renpy.config.gamedir, "Submods", "Noises Submod", "res", "audio")
 
         else:
             return os.path.join(renpy.config.renpy_base, *parts)
 
 
     SOUND_PREFIX = __get_sounds_dir()
+    SOUND_PREFIX_REL = SOUND_PREFIX[5:]  # Remove game/ prefix
 
 
 label otter_show_noises:
@@ -84,7 +85,7 @@ label otter_show_noises:
         m 2eka "Oh, okay..."
         jump otter_show_noises_end
 
-    $ path = store.noMod.SOUND_PREFIX + "/" + _return + ".ogg"
+    $ path = store.noMod.SOUND_PREFIX_REL + "/" + _return + ".ogg"
     $ weather = None
     if _return in ("rain", "rainroof"):
         $ weather = mas_weather_rain
@@ -104,6 +105,6 @@ label otter_show_noise(path, weather=None):
     m 1dua "Okay..."
     if weather is not None:
         call mas_change_weather(weather, by_user=False)
-    play music path
+    $ play_song(path, set_per=True)
     m 3hub "There you go, [player]!"
     return
