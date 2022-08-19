@@ -1,4 +1,6 @@
 init python in noMod:
+    import os
+
     def __get_sounds_dir():
         path = renpy.get_filename_line()[0].replace("\\", "/")
         if os.path.isabs(path):
