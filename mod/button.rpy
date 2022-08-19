@@ -6,7 +6,6 @@ init 100000 python in mas_hotkeys:
 
 init 100000:
     screen hkb_overlay():
-
         zorder 50
         style_prefix "hkb"
 
