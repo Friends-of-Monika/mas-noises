@@ -12,6 +12,5 @@ init -989 python:
             submod="Noises Submod",
             user_name="my-otter-self",
             repository_name="mas_noises",
-            submod_dir="/Submods/Noises Submod",
             extraction_depth=3
         )
