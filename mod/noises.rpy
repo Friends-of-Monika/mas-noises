@@ -26,7 +26,7 @@ init python in noMod:
 
 
     SOUND_PREFIX = __get_sounds_dir()
-    SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir)
+    SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir).replace("\\", "/")
 
 
 label otter_show_noises:
