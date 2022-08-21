@@ -2,7 +2,7 @@
 <h4 align="center">Submod that adds background noises Monika can play to you</h3>
 
 <p align="center">
-  <a href="https://github.com/my-otter-self/mas_hydro/releases/latest">
+  <a href="https://github.com/my-otter-self/mas_noises/releases/latest">
     <img alt="Latest release" src="https://img.shields.io/github/v/release/my-otter-self/mas_noises">
   </a>
     <a href="https://github.com/my-otter-self/MAS_noises/releases/latest">
@@ -14,7 +14,7 @@
   <a href="https://mon.icu/discord">
     <img alt="Discord server" src="https://discordapp.com/api/guilds/970747033071804426/widget.png?style=shield">
   </a>
-  <a href="https://github.com/my-otter-self/mas_hydro/blob/main/LICENSE.txt">
+  <a href="https://github.com/my-otter-self/mas_noises/blob/main/LICENSE.txt">
     <img alt="Creative Commons BY-NC-ND 4.0 license badge" src="https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg">
   </a>
 </p>
@@ -27,7 +27,7 @@
 
 ## ❓ Download instructions
 
-You can check the detailed download instructions at the [wiki](https://github.com/my-otter-self/mas_hydro/wiki/%E2%9D%93-Download-instructions).
+You can check the detailed download instructions at the [wiki](https://github.com/my-otter-self/mas_noises/wiki/%E2%9D%93-Download-instructions).
 
 
 ## ✒️ Authors
