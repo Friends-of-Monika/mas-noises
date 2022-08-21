@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://github.com/my-otter-self/mas_hydro/releases/latest">
-    <img alt="Latest release" src="https://img.shields.io/github/v/release/my-otter-self/mas_hydro">
+    <img alt="Latest release" src="https://img.shields.io/github/v/release/my-otter-self/mas_noises">
   </a>
     <a href="https://github.com/my-otter-self/MAS_noises/releases/latest">
     <img alt="downloads counter badge" src="https://img.shields.io/github/downloads/my-otter-self/MAS_noises/total">
