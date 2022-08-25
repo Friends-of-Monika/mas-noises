@@ -1,5 +1,8 @@
+default persistent._noMod_current_noise = None
+
 init python in noMod:
     import os
+
 
     def __get_sounds_dir():
         path = renpy.get_filename_line()[0].replace("\\", "/")
@@ -27,6 +30,32 @@ init python in noMod:
 
     SOUND_PREFIX = __get_sounds_dir()
     SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir).replace("\\", "/")
+
+
+    def play_noise(name, persist=False):
+        if name is not None:
+            path = store.noMod.SOUND_PREFIX_REL + "/" + name + ".ogg"
+
+            renpy.music.play(
+                path,
+                channel="background",
+                loop=True,
+                synchro_start=True,
+                fadein=1.2,
+                fadeout=1.2,
+                if_changed=True
+            )
+
+        else:
+            renpy.music.stop(channel="background", fadeout=1.2)
+
+        if persist:
+            persistent._noMod_current_noise = name
+
+
+init 10000 python:
+    if persistent._noMod_current_noise is not None:
+        store.noMod.play_noise(persistent._noMod_current_noise)
 
 
 label otter_show_noises:
@@ -86,7 +115,6 @@ label otter_show_noises:
         m 2eka "Oh, okay..."
         jump otter_show_noises_end
 
-    $ path = store.noMod.SOUND_PREFIX_REL + "/" + _return + ".ogg"
     $ weather = None
     if _return in ("rain", "rainroof"):
         $ weather = mas_weather_rain
@@ -94,7 +122,7 @@ label otter_show_noises:
         $ weather = mas_weather_thunder
     elif _return == "snowstorm":
         $ weather = mas_weather_snow
-    call otter_show_noise(path, weather)
+    call otter_show_noise(_return, weather)
 
     # FALLTHROUGH
 
@@ -102,10 +130,10 @@ label otter_show_noises_end:
     $ mas_DropShield_dlg()
     jump ch30_visual_skip
 
-label otter_show_noise(path, weather=None):
+label otter_show_noise(name, weather=None):
     m 1dua "Okay..."
     if weather is not None:
         call mas_change_weather(weather, by_user=False)
-    $ play_song(path, set_per=True)
+    $ store.noMod.play_noise(name, set_per=True)
     m 3hub "There you go, [player]!"
     return
