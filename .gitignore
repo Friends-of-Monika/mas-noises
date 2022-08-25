@@ -1,1 +1,8 @@
+# VS Code project data
 /.vscode
+
+# MacOS folder metadata
+.DS_Store
+
+# Built packages
+/*.zip
