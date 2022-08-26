@@ -14,4 +14,5 @@ package="$(echo "$name" | tr "[:upper:]" "[:lower:]" | tr "[:blank:]" "-")"
 
 mkdir -p "$temp/game/Submods"
 cp -r "$dir/mod" "$temp/game/Submods/$name"
+cp -r "$dir/res" "$temp/game/Submods/$name/res"
 (cd "$temp" || exit 1; find game | zip -9@ "$dir/$package-$version.zip" && rm -rf "$temp")
