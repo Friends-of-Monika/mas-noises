@@ -27,5 +27,5 @@ label otter_noises_submod_v1_0_0(version="v1_0_0"):
 
 label otter_noises_submod_v1_1_0(version="v1_1_0"):
     # Cleanup persistent since no longer persisting noise.
-    $ persistent.__dict__.pop("_noMod_current_noise")
+    $ persistent.__dict__.pop("_noMod_current_noise", None)
     return
