@@ -154,8 +154,9 @@ label otter_show_noise(name, weather=None):
 label otter_hide_noise:
     # call mas_change_weather(store.noMod.current_weather)
     # FIXME: ^ This won't work, weather won't reset. As a compromise have this:
-    call mas_change_weather(mas_weather_def)
-    $ store.noMod.current_weather = None
+    if store.noMod.current_weather is not None:
+        call mas_change_weather(mas_weather_def)
+        $ store.noMod.current_weather = None
 
     $ store.noMod.play_noise(None)
 
