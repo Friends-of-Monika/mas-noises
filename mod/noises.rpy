@@ -109,7 +109,7 @@ label otter_show_noises:
 
     show monika at t21
     $ final_args = [("Nevermind", False, False, False, 0)]
-    if persist._noMod_current_noise is not None:
+    if persistent._noMod_current_noise is not None:
         $ final_args.insert(0, ("No sounds", "silence", False, False, 0))
     call screen mas_gen_scrollable_menu(items, mas_ui.SCROLLABLE_MENU_TXT_LOW_AREA, mas_ui.SCROLLABLE_MENU_XALIGN, *final_args)
     show monika at t11
