@@ -137,6 +137,6 @@ label otter_show_noise(name, weather=None):
     m 1dua "Okay..."
     if weather is not None:
         call mas_change_weather(weather, by_user=False)
-    $ store.noMod.play_noise(name, set_per=True)
+    $ store.noMod.play_noise(name, persist=True)
     m 3hub "There you go, [player]!"
     return
