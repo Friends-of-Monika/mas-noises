@@ -1,5 +1,3 @@
-default persistent._noMod_current_noise = None
-
 init python in noMod:
     import store
     from store import persistent
@@ -34,8 +32,11 @@ init python in noMod:
     SOUND_PREFIX = __get_sounds_dir()
     SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir).replace("\\", "/")
 
+    current_noise = None
+    current_weather = None
 
-    def play_noise(name, persist=False):
+
+    def play_noise(name):
         if name is not None:
             path = store.noMod.SOUND_PREFIX_REL + "/" + name + ".ogg"
 
@@ -52,13 +53,8 @@ init python in noMod:
         else:
             renpy.music.stop(channel="background", fadeout=1.2)
 
-        if persist:
-            persistent._noMod_current_noise = name
-
-
-init 10000 python:
-    if persistent._noMod_current_noise is not None:
-        store.noMod.play_noise(persistent._noMod_current_noise)
+        global current_noise
+        current_noise = name
 
 
 label otter_show_noises:
@@ -107,39 +103,61 @@ label otter_show_noises:
             ("Seagulls", "seagulls", False, False)
         ]
 
+        if store.noMod.current_noise is None:
+            final_args = [("Nevermind", False, False, False, 4)]
+
+        else:
+            final_args = [
+                ("No sounds", "silence", False, False, 4),
+                ("Nevermind", False, False, False, 0)
+            ]
 
     m 1eub "What noise do you want to listen to today?"
 
     show monika at t21
-    $ final_args = [("Nevermind", False, False, False, 0)]
-    if persistent._noMod_current_noise is not None:
-        $ final_args.insert(0, ("No sounds", "silence", False, False, 0))
     call screen mas_gen_scrollable_menu(items, mas_ui.SCROLLABLE_MENU_TXT_LOW_AREA, mas_ui.SCROLLABLE_MENU_XALIGN, *final_args)
     show monika at t11
 
     if not _return:  # _return is False
         m 2eka "Oh, okay..."
-        jump otter_show_noises_end
 
-    $ weather = None
-    if _return in ("rain", "rainroof"):
-        $ weather = mas_weather_rain
-    elif _return == "thunder":
-        $ weather = mas_weather_thunder
-    elif _return == "snowstorm":
-        $ weather = mas_weather_snow
-    call otter_show_noise(_return, weather)
+    else:  # _return is either silence (stop sounds) or actual sound
+        m 1dua "Okay..."
 
-    # FALLTHROUGH
+        if _return == "silence":
+            call otter_hide_noise
 
-label otter_show_noises_end:
+        else:
+            $ weather = None
+            if _return in ("rain", "rainroof"):
+                $ weather = mas_weather_rain
+            elif _return == "thunder":
+                $ weather = mas_weather_thunder
+            elif _return == "snowstorm":
+                $ weather = mas_weather_snow
+
+            call otter_show_noise(_return, weather)
+
     $ mas_DropShield_dlg()
     jump ch30_visual_skip
 
 label otter_show_noise(name, weather=None):
-    m 1dua "Okay..."
     if weather is not None:
-        call mas_change_weather(weather, by_user=False)
-    $ store.noMod.play_noise(name, persist=True)
+        call mas_change_weather(weather)
+    $ store.noMod.current_weather = mas_current_weather
+
+    $ store.noMod.play_noise(name)
+
     m 3hub "There you go, [player]!"
+    return
+
+label otter_hide_noise:
+    # call mas_change_weather(store.noMod.current_weather)
+    # FIXME: ^ This won't work, weather won't reset. As a compromise have this:
+    call mas_change_weather(mas_weather_def)
+    $ store.noMod.current_weather = None
+
+    $ store.noMod.play_noise(None)
+
+    m 3hub "I hope you enjoyed these sounds, [mas_get_player_nickname()]~"
     return
