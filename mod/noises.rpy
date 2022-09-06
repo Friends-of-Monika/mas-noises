@@ -2,6 +2,8 @@ default persistent._noMod_current_noise = None
 
 init python in noMod:
     import store
+    from store import persistent
+
     import os
 
 
