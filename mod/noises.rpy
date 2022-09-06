@@ -108,7 +108,10 @@ label otter_show_noises:
     m 1eub "What noise do you want to listen to today?"
 
     show monika at t21
-    call screen mas_gen_scrollable_menu(items, mas_ui.SCROLLABLE_MENU_TXT_LOW_AREA, mas_ui.SCROLLABLE_MENU_XALIGN, ("Nevermind", False, False, False, 0))
+    $ final_args = [("Nevermind", False, False, False, 0)]
+    if persist._noMod_current_noise is not None:
+        $ final_args.insert(0, ("No sounds", "silence", False, False, 0))
+    call screen mas_gen_scrollable_menu(items, mas_ui.SCROLLABLE_MENU_TXT_LOW_AREA, mas_ui.SCROLLABLE_MENU_XALIGN, *final_args)
     show monika at t11
 
     if not _return:  # _return is False
