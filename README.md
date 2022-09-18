@@ -1,5 +1,5 @@
 <h1 align="center">🔊 MAS Noises Submod 🔊</h1>
-<h4 align="center">Submod that adds background noises Monika can play to you</h3>
+<h3 align="center">Submod that adds background noises Monika can play to you</h3>
 
 <p align="center">
   <a href="https://github.com/my-otter-self/mas_noises/releases/latest">
