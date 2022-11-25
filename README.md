@@ -26,11 +26,6 @@ This submod is no longer mantained as of Monika After Story's recent update (v0.
   * A new button to activate them
 
 
-## ❓ Download instructions
-
-You can check the detailed download instructions at the [wiki](https://github.com/my-otter-self/mas_noises/wiki/%E2%9D%93-Download-instructions).
-
-
 ## ✒️ Authors
 
 This submod was created by these people:
@@ -44,12 +39,6 @@ This submod was created by these people:
 **Note:** CC BY-NC-ND 4.0 only covers content created by authors, contributors or maintainers of this mod (repository) and does not cover
 anything that was created by third party.
 
-
-## 💬 Join our Discord
-
-We're up to chat! Come join us at our Discord server [here](https://mon.icu/discord).
-
-[![Discord server invitation](https://discordapp.com/api/guilds/970747033071804426/widget.png?style=banner3)](https://mon.icu/discord)
 
 ## 💚 MAS Repository
 Here you can see the official Monika After Story repository!
