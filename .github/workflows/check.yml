@@ -1,15 +1,8 @@
-name: "Run checks on push"
+name: Run checks
 
-on:
-  push:
-    paths: [ "**.rpy" ]
+on: push
 
 jobs:
-  compile-submod:
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
-
-      - name: "Check"
-        uses: "friends-of-monika/submod-check-action@v2"
+  check:
+    uses: friends-of-monika/submod-check/.github/workflows/check.yml@dev
+    with: { paths: mod }
