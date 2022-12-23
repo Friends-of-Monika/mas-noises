@@ -57,7 +57,7 @@ init python in noMod:
         current_noise = name
 
 
-label otter_show_noises:
+label fom_show_noises:
     $ mas_RaiseShield_dlg()
 
     python:
@@ -125,7 +125,7 @@ label otter_show_noises:
         m 1dua "Okay..."
 
         if _return == "silence":
-            call otter_hide_noise
+            call fom_hide_noise
 
         else:
             $ weather = None
@@ -136,12 +136,12 @@ label otter_show_noises:
             elif _return == "snowstorm":
                 $ weather = mas_weather_snow
 
-            call otter_show_noise(_return, weather)
+            call fom_show_noise(_return, weather)
 
     $ mas_DropShield_dlg()
     jump ch30_visual_skip
 
-label otter_show_noise(name, weather=None):
+label fom_show_noise(name, weather=None):
     if weather is not None:
         call mas_change_weather(weather)
     $ store.noMod.current_weather = mas_current_weather
@@ -151,7 +151,7 @@ label otter_show_noise(name, weather=None):
     m 3hub "There you go, [player]!"
     return
 
-label otter_hide_noise:
+label fom_hide_noise:
     # call mas_change_weather(store.noMod.current_weather)
     # FIXME: ^ This won't work, weather won't reset. As a compromise have this:
     if store.noMod.current_weather is not None:
