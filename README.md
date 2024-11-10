@@ -2,13 +2,13 @@
 <h3 align="center">Submod that adds background noises Monika can play to you</h3>
 
 <p align="center">
-  <a href="https://github.com/Friends-of-Monika/mas-noises/releases/latest">
-    <img alt="Latest release" src="https://img.shields.io/github/v/release/Friends-of-Monika/mas-noises">
+  <a href="https://github.com/friends-of-monika/mas-noises/releases/latest">
+    <img alt="Latest release" src="https://img.shields.io/github/v/release/friends-of-monika/mas-noises">
   </a>
-    <a href="https://github.com/Friends-of-Monika/MAS-noises/releases/latest">
-    <img alt="downloads counter badge" src="https://img.shields.io/github/downloads/Friends-of-Monika/MAS-noises/total">
+    <a href="https://github.com/friends-of-monika/mas-noises/releases/latest">
+    <img alt="downloads counter badge" src="https://img.shields.io/github/downloads/friends-of-monika/mas-noises/total">
   </a>
-  <a href="https://github.com/Friends-of-Monika/mas-noises/blob/main/LICENSE.txt">
+  <a href="https://github.com/friends-of-monika/mas-noises/blob/main/LICENSE.txt">
     <img alt="Creative Commons BY-NC-ND 4.0 license badge" src="https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg">
   </a>
   <a href="https://mon.icu/discord">
@@ -21,9 +21,12 @@
   * 30+ background noises
   * A new button to activate them
 
-
 ## ✒️ Authors
 
+* Original submod: [Otter](https://github.com/my-otter-self)
+  * Continued version contributors:
+    + [dreamscached](https://github.com/dreamscached)
+    
 This submod was created by these people:
 
 <p align="center">

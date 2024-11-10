@@ -1,0 +1,8 @@
+name: Run checks
+
+on: push
+
+jobs:
+  check:
+    uses: friends-of-monika/submod-check/.github/workflows/check.yml@dev
+    with: { paths: mod }
