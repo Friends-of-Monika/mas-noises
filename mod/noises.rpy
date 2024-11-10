@@ -1,36 +1,15 @@
 init python in noMod:
-    import store
     from store import persistent
-
+    import store
     import os
 
-
-    def __get_sounds_dir():
-        path = renpy.get_filename_line()[0].replace("\\", "/")
-        if os.path.isabs(path):
-            path = os.path.relpath(path, renpy.config.renpy_base)
-
-        parts = path.split("/")[:-1]
-        parts.append("res")
-        parts.append("audio")
-
-        if parts[0] != "game":
-            for n in range(1, len(parts)):
-                parts_proc = parts[n:]
-                parts_proc.insert(0, "game")
-
-                full_abs_path = os.path.join(renpy.config.renpy_base, *parts_proc)
-                if os.path.exists(full_abs_path):
-                    return full_abs_path
-
-            return os.path.join(renpy.config.gamedir, "Submods", "Noises Submod", "res", "audio")
-
-        else:
-            return os.path.join(renpy.config.renpy_base, *parts)
-
-
-    SOUND_PREFIX = __get_sounds_dir()
+    SOUND_PREFIX = store.fom_getScriptDir("game/Submods/Noises Submod")
     SOUND_PREFIX_REL = os.path.relpath(SOUND_PREFIX, renpy.config.gamedir).replace("\\", "/")
+
+    if not os.path.exists(SOUND_PREFIX):
+        store.mas_submod_utils.submod_log.error("[Noises] Failed to locate SOUND_PREFIX: "
+                                                "resolved to {0}, which does not exist"
+                                                .format(SOUND_PREFIX))
 
     current_noise = None
     current_weather = None
